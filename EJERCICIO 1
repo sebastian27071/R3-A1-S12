@@ -1,0 +1,32 @@
+package colamantenerorden;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ColaMantenerOrden {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+
+        Queue<Integer> colaA = new LinkedList<>();
+        Queue<Integer> colaB = new LinkedList<>();
+
+        System.out.print("¿Cuantos numeros desea ingresar en la Cola A?: ");
+        int n = entrada.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            System.out.print("Ingrese el número " + i + ": ");
+            int num = entrada.nextInt();
+            colaA.add(num);
+        }
+
+      
+        while (!colaA.isEmpty()) {
+            int elemento = colaA.remove(); 
+            colaB.add(elemento);            
+        }
+
+        // Mostrar resultados
+        System.out.println("\nCola A despues de mover: " + colaA);
+        System.out.println("Cola B (manteniendo el orden): " + colaB);
+    }}
