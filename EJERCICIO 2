@@ -1,0 +1,37 @@
+
+package colainvertirorden;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class ColaInvertirOrden {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+
+        Queue<Integer> colaA = new LinkedList<>();
+        Queue<Integer> colaB = new LinkedList<>();
+        Stack<Integer> pilaAux = new Stack<>(); 
+
+        System.out.print("¿Cuántos números desea ingresar en la Cola A?: ");
+        int n = entrada.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            System.out.print("Ingrese el número " + i + ": ");
+            int num = entrada.nextInt();
+            colaA.add(num);
+        }
+
+        while (!colaA.isEmpty()) {
+            pilaAux.push(colaA.remove());
+        }
+
+        while (!pilaAux.isEmpty()) {
+            colaB.add(pilaAux.pop());
+        }
+
+        System.out.println("\nCola A después de mover: " + colaA);
+        System.out.println("Cola B (orden invertido): " + colaB);
+    }
+}
